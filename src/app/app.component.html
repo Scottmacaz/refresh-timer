@@ -1,21 +1,15 @@
-<div style="display:inline-block;">
-  Hours: <span>{{hours}}</span>
-</div>
-<p>
-<div style="display:inline-block;">
-  Minutes: <span>{{minutes}}</span>
-</div>
-<p>
-<div style="display:inline-block;">
-  Seconds: <span> {{seconds}}</span>
-</div>
-<p>
-<div style="display:inline-block;">
-  Percent: <span>{{percent}}</span>
-</div>
+<h1>
 
-<div>
-  <input type="text" placeholder="Total Seconds" [(ngModel)]= "totalSeconds">
-  <input type="text" placeholder="Remaining Seconds" [(ngModel)]= "remainingSeconds">
-  <button (click)= "onStartTimer()">Start Timer</button>
-</div>
+  Overview</h1>
+<p>Two different implementations that test out how a countdown timer might work given different data from the server. The idea
+  is that the server should receive the data, and then start a timer that fires every second showing both a countdown (hours,
+  minutes, seconds) and a progress bar that shows percent complete. When new data is received the progress bar should be
+  updated. Everything needed to determine time remaining and percent complete must be in the data sent by the server.
+
+  <p>
+    <button mat-raised-button routerLink="/implementation-one">Implementation One</button>
+    <button mat-raised-button routerLink="/implementation-two">Implementation Two</button>
+  </p>
+  <hr>
+
+  <router-outlet></router-outlet>

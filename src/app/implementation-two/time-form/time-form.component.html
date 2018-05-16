@@ -1,0 +1,30 @@
+<p>
+  Note: Times should be in 24 hour format of: <code> hh:mm:ss </code>.  The string will be parsed into a DateTime of a fixed date.
+  So this test application does not span days.
+</p>
+<form (ngSubmit)="onSubmit()" #timeForm="ngForm">
+    <div>
+      <label for="startTime">Start Time</label>
+      <input type="datetime" id="startTime" [(ngModel)]="model.startTime" name="startTime" [disabled]="isSubmitted">
+    </div>
+    <div>
+      <label for="currentTime">Current Time</label>
+      <input type="datetime" id="currentTime" [(ngModel)]="model.currentTime" name="currentTime">
+    </div>
+    <div>
+      <label for="endTime">End Time</label>
+      <input type="datetime" id="endTime" [(ngModel)]="model.endTime" name="endTime">
+    </div>
+    <div>
+      <label for="pauseSeconds">Pause Seconds</label>
+      <input type="number" id="pauseSeconds" [(ngModel)]="model.pauseSeconds" name="pauseSeconds">
+    </div>
+    <div>
+      <label for="errorSeconds">Error Seconds</label>
+      <input type="number" id="errorSeconds" [(ngModel)]="model.errorSeconds" name="errorSeconds">
+    </div>
+
+    <!-- <button (click)="onStartTimer()">Start Timer</button> -->
+    <button type="submit" [disabled]="isSubmitted">Start Timer</button>
+    <button type="button" (click)="onUpdate()" [disabled]="!isSubmitted">Send Update</button>
+  </form>

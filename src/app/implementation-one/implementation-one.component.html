@@ -1,0 +1,36 @@
+<h2><a routerLink="/implementation-one"> Implementation One</a></h2>
+<p>Uses only two pieces of data that would be sent from the server: 
+  <ul>
+      <li>Total Seconds</li>
+      <li>Remaining Seconds</li>  
+    </ul>
+  
+  Percent complete is (totalSeconds - remainingSeconds) / totalSeconds) * 100.
+  Remaining seconds is divided into hours, minutes, and seconds using a TimeRemainingCalculator.
+  
+
+<h3>Implementation One:</h3>
+<div style="display:inline-block;">
+  Hours: <span>{{hours}}</span>
+</div>
+<p>
+<div style="display:inline-block;">
+  Minutes: <span>{{minutes}}</span>
+</div>
+<p>
+<div style="display:inline-block;">
+  Seconds: <span> {{seconds}}</span>
+</div>
+<p>
+<div style="display:inline-block;">
+  Percent: <span>{{percent}}</span>
+</div>
+
+<div class= "progress-bar">
+  <mat-progress-bar mode="determinate" value="{{percent}}"></mat-progress-bar>
+</div>
+<div>
+  <input type="text" placeholder="Total Seconds" [(ngModel)]= "totalSeconds">
+  <input type="text" placeholder="Remaining Seconds" [(ngModel)]= "remainingSeconds">
+  <button (click)= "onStartTimer()">Start Timer</button>
+</div>

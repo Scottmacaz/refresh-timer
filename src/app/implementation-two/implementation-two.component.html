@@ -1,0 +1,36 @@
+<H2>
+  <a routerLink="/implementation-two">Implementation Two</a>
+</H2>
+Uses four pieces of data:
+<ul>
+  <li>Start Time</li>
+  <li>Current Time</li>
+  <li>End Time</li>
+  <li>Pause Time</li>
+  <li>Error Time</li>
+</ul>
+
+<div>
+  Hours:
+  <span>{{hours}}</span>
+</div>
+<div>
+  Minutes:
+  <span>{{minutes}}</span>
+</div>
+<div>
+  Seconds:
+  <span> {{seconds}}</span>
+</div>
+<div>
+  Percent:
+  <span>{{percent}}</span>
+</div>
+
+<div class="progress-bar">
+  <mat-progress-bar mode="determinate" value="{{percent}}"></mat-progress-bar>
+</div>
+<div>
+  <div *ngIf="isError" class="error">Error: {{errorMsg}}</div>
+  <app-time-form (submitEvent)="onSubmit($event)" [isSubmitted]="isSubmitted"></app-time-form>
+</div>
