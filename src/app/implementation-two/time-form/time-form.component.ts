@@ -12,6 +12,7 @@ export class TimeFormComponent implements OnInit {
   model = new TimeData('7:00:00', '7:00:00', '7:00:03', 0, 0);
 
   @Output() submitEvent = new EventEmitter();
+  @Output() updateEvent = new EventEmitter();
   @Input() isSubmitted: boolean;
 
   constructor() { }
@@ -27,7 +28,6 @@ export class TimeFormComponent implements OnInit {
    }
 
    onUpdate() {
-    debugger;
-     alert("Update!");
+    this.updateEvent.emit(this.model);
    }
 }

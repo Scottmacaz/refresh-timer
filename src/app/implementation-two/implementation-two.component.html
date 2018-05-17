@@ -32,5 +32,5 @@ Uses four pieces of data:
 </div>
 <div>
   <div *ngIf="isError" class="error">Error: {{errorMsg}}</div>
-  <app-time-form (submitEvent)="onSubmit($event)" [isSubmitted]="isSubmitted"></app-time-form>
+  <app-time-form (submitEvent)="onSubmit($event)" (updateEvent)="onUpdate($event)" [isSubmitted]="isSubmitted"></app-time-form>
 </div>

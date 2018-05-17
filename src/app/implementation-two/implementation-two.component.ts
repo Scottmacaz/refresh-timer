@@ -30,6 +30,18 @@ export class ImplementationTwoComponent implements OnInit {
     this.isSubmitted = true;
     this.isError = false;
     this.errorMsg = '';
+    this.startCounting(timeData);
+
+  }
+
+  onUpdate(timeData: TimeData) {
+    // When an update occurs just kill the timer and send in new data.
+    // kill timer:
+    clearInterval(this.timerId);
+    this.startCounting(timeData);
+  }
+
+  startCounting(timeData: TimeData) {
     const startTime = this.makeTimeOrError(timeData.startTime, 'Start Time');
     const currentTime = this.makeTimeOrError(timeData.currentTime, 'Current Time');
     const endTime = this.makeTimeOrError(timeData.endTime, 'End Time');
@@ -39,7 +51,6 @@ export class ImplementationTwoComponent implements OnInit {
 
     // From the data above need total seconds and remaining seconds and then it becomes the same as
     // implementation one.
-    debugger;
     this.remainingSeconds = Math.abs((endTime.date.getTime() - currentTime.date.getTime()) / 1000);
     // tslint:disable-next-line:max-line-length
     this.totalSeconds = Math.abs(endTime.date.getTime() / 1000 - (startTime.date.getTime() / 1000 + timeData.pauseSeconds + timeData.errorSeconds));
@@ -60,7 +71,6 @@ export class ImplementationTwoComponent implements OnInit {
           clearInterval(this.timerId);
         }
     } , 1000);
-
 
   }
 
