@@ -1,4 +1,4 @@
-export class RemainingTimeCalculator {
+export class TimeRemainingCalculator {
 
   constructor(private totalSeconds: number, private remainingSeconds: number) {}
 

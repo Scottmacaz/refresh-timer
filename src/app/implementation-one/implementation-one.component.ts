@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RemainingTimeCalculator } from '../shared/remaining-time-calculator';
+import { TimeRemainingCalculator } from '../shared/time-remaining-calculator';
 
 @Component({
   selector: 'app-implementation-one',
@@ -23,7 +23,7 @@ export class ImplementationOneComponent implements OnInit {
   onStartTimer() {
     console.log('TotalSeconds: ' + this.totalSeconds);
     console.log('remainingSeconds: ' + this.remainingSeconds);
-    const remainingTimeCalculator = new RemainingTimeCalculator(this.totalSeconds, this.remainingSeconds);
+    const remainingTimeCalculator = new TimeRemainingCalculator(this.totalSeconds, this.remainingSeconds);
     this.timerId = setInterval((totalSeconds, remainingSeconds) => {
         console.log('Loop in setInterval');
         const timeRemaining = remainingTimeCalculator.getRemainingTime();
